@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package tvm;
+
+message FusedNode {
+  repeated Node node = 1;
+}
+
+message Node {
+    string name = 1;
+    string op = 2;
+    int32 op_index = 3;
+    DataType data_type = 4;
+    repeated string input = 5;
+    repeated ListOfInteger input_datashape = 6;
+    repeated DataShape data_shape = 7;
+    ConvParam convparam = 101;
+    DataParam dataparam = 102;
+
+}
+
+enum DataType {
+    FLOAT16 = 0;
+    FLOAT32 = 1;
+    INT8 = 2;
+    INT16 = 3;
+}
+
+enum DataLayout {
+    ONE_DIM = 0;
+    NHWC = 1;
+    NCHW = 2;
+    CHW = 3;
+    HWC = 4;
+}
+
+message DataShape {
+    int32 number = 1;
+    }
+
+message ConvParam{
+    repeated int32 kernel_size = 1;
+    repeated int32 pad = 2;
+    repeated int32 stride = 3;
+    repeated int32 dilation = 4;
+    bool bias = 5;
+    bool relu = 6;
+}
+
+message ListOfInteger {
+    repeated int32 ints=2;
+}
+
+message DataParam {
+    DataLayout layout = 1;
+    int32 position = 2;
+    float scale = 3;
+    string dump_folder = 4;
+}

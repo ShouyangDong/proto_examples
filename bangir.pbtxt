@@ -1,0 +1,41 @@
+node {
+  name: "convolution_first"
+  op: "conv"
+  op_index: 1
+  input: "1"
+  input: "2"
+  input: "3"
+  input_datashape {
+    ints: 1
+    ints: 2
+    ints: 3
+    ints: 4
+  }
+  input_datashape {
+    ints: 1
+    ints: 2
+    ints: 3
+    ints: 4
+  }
+  input_datashape {
+    ints: 1
+    ints: 2
+    ints: 3
+    ints: 4
+  }
+  convparam {
+    kernel_size: 3
+    kernel_size: 3
+    pad: 0
+    pad: 0
+    stride: 1
+    stride: 1
+    dilation: 1
+    dilation: 1
+    bias: true
+    relu: true
+  }
+  dataparam {
+    layout: NHWC
+  }
+}

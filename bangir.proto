@@ -16,7 +16,16 @@ message Node {
     repeated DataShape data_shape = 7;
     ConvParam convparam = 101;
     DataParam dataparam = 102;
+    Repeated Input_memory_space = 103;
+    Repeated output_memory_space = 104;
+    Repeated Opconfiguration = 105;
+}
 
+enum DeviceTopology {
+   Sram = 0;
+   Ldram = 1;
+   Gdram = 2;
+   Nram = 3;
 }
 
 enum DataType {
